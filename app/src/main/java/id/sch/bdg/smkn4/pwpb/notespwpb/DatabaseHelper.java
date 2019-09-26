@@ -77,7 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(KEY_TITLE, note.getJudul());
         values.put(KEY_DESCRIPTION, note.getDeskripsi());
         values.put(KEY_DATE, note.getTanggal());
-        String whereClause = KEY_ID + "=" + note.getId() + "";
+        String whereClause = KEY_ID + "='" + note.getId() + "'";
         db.update(TABLE_NAME, values, whereClause,null);
     }
 }

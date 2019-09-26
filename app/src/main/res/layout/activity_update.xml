@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".UpdateActivity"
     android:layout_margin="16dp">
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/div1"
         android:layout_width="match_parent"

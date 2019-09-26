@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
@@ -16,6 +17,7 @@ import java.util.Date;
 public class UpdateActivity extends AppCompatActivity {
     public static String CURRENT_NOTE = "extra_note";
     EditText edtTitle, edtDescription;
+    TextView tvIdNote;
     Button btnUpdate;
 
     @Override
@@ -29,6 +31,7 @@ public class UpdateActivity extends AppCompatActivity {
         edtDescription = findViewById(R.id.edtDeskripsi);
         edtTitle.setText(note.getJudul());
         edtDescription.setText(note.getDeskripsi());
+        final int id = note.getId();
         btnUpdate = findViewById(R.id.btnUpdate);
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +39,7 @@ public class UpdateActivity extends AppCompatActivity {
                 if (!(edtTitle.getText().toString().trim().equals("") || edtDescription.getText().toString().trim().equals(""))) {
                     DatabaseHelper db = new DatabaseHelper(UpdateActivity.this);
                     Note currentNote = new Note();
+                    currentNote.setId(id);
                     currentNote.setJudul(edtTitle.getText().toString());
                     currentNote.setDeskripsi(edtDescription.getText().toString());
                     SimpleDateFormat tanggal = new SimpleDateFormat ("dd/MM/yyyy' 'hh:mm:ss");
